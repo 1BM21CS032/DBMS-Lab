@@ -53,9 +53,9 @@ insert into Car values ('KA052250', 'Indica', 1990),
 ('KA041702', 'Audi', 2005);
 
 insert into Owns values ('A01', 'KA052250'),
-('A02', 'KA052250'),
-('A03', 'KA031181'),
-('A04', 'KA095477'),
+('A02', 'KA031181'),
+('A03', 'KA095477'),
+('A04', 'KA053408'),
 ('A05', 'KA041702');
 
 insert into Accident values (11, '01-Jan-03', 'Mysore Road'),
@@ -65,7 +65,15 @@ insert into Accident values (11, '01-Jan-03', 'Mysore Road'),
 (15, '04-Mar-05', 'Kanakpura Road');
 
 insert into Participated values ('A01', 'KA052250', 11, 10000),
-('A02', 'KA052250', 12, 50000),
-('A03', 'KA031181', 13, 25000),
-('A04', 'KA095477', 14, 3000),
+('A02', 'KA031181', 12, 50000),
+('A03', 'KA095477', 13, 25000),
+('A04', 'KA053408', 14, 3000),
 ('A05', 'KA041702', 15, 5000);
+
+select * from Car;
+
+
+
+
+
+
