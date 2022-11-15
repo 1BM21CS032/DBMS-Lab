@@ -71,10 +71,14 @@ insert into Participated values ('A01', 'KA052250', 11, 10000),
 ('A05', 'KA041702', 15, 5000);
 
 select * from Participated order by damage_amount desc;
+
 select avg (damage_amount) from Participated;
 
-select max(damage_amount) from Participated;
+delete from Participated where damage_amount < (select avg(damage_amount) from Participated);
 
+select name from Person per, Participated par where per.driver_id=par.driver_id and par.damage_amount > (select avg(damage_amount) from Participated);
+
+select max(damage_amount) from Participated;
 
 
 
