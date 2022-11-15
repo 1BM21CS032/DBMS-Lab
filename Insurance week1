@@ -79,6 +79,7 @@ delete from Participated where damage_amount <= (select avg (damage_amount) from
 select name from Person per, Participated par where per.driver_id=par.driver_id and par.damage_amount > (select avg(damage_amount) from Participated);
 select max(damage_amount) from Participated;
 
+delete form Participated where damage_amount<(select t.amt from (select avg (da,age cmount) as amt from participated)t);
 
 
 
