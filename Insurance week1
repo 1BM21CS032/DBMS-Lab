@@ -13,7 +13,7 @@ reg_num varchar(10) primary key,
 model char(20),
 year int(4)
 );
-drop table Accident;
+
 
 create table Accident(
 report_num int(4) primary key,
@@ -70,7 +70,10 @@ insert into Participated values ('A01', 'KA052250', 11, 10000),
 ('A04', 'KA053408', 14, 3000),
 ('A05', 'KA041702', 15, 5000);
 
-select * from Car;
+select * from Participated order by damage_amount desc;
+select avg (damage_amount) from Participated;
+
+select max(damage_amount) from Participated;
 
 
 
