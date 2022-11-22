@@ -96,7 +96,8 @@ select * from loans;
 select CONCAT(Balance+1000,'  rupees') UPDATED_BALANCE from bankAccount b, bankCustomer bc, depositor d 
 where bc.Customer_name=d.Customer_name and b.Accno=d.Accno and bc.city='Bangalore';
 
-select bc.customer_name, Balance+1000 UPDATED_BALANCE from bankAccount b, bankCustomer bc, depositor d 
+select bc.customer_name, bc.city, d.accno, Balance+1000 UPDATED_BALANCE from bankAccount b, bankCustomer bc, depositor d 
 where bc.customer_name=d.Customer_name and b.Accno=d.Accno and bc.city='Bangalore';
+
 
 
