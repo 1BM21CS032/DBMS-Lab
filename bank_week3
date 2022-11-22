@@ -76,21 +76,21 @@ insert into loan values (1,'SBI_Chamrajpet',1000),
 (5,'SBI_Jantarmantar',5000);
 /*view of assets of bank*/
 create view bank_assets (bank_name, assets_in_lakhs) as select branch_name, assets/100000 from branch;
-
-select customer_name, accno from depositor where accno in (
-select accno from bankAccount where branch_name like '%Resi%')
-group by customer_name, accno having count(customer_name)>=2;
+select * frp, bank-assets;
 
 create view loans(branch, loans) 
 as select b.branch_name, sum(l.amount) from branch b, loan l where b.branch_name=l.branch_name 
-group by branch_name;
-
-/*View of loans from each branch*/
-create view a_loans(Branch_name,Amount)
-as select branch_name,sum(amount) from loan 
 group by branch_name;
 
 /*Find customer who has 2 accounts in one branch*/
 select customer_name from depositor where accno in 
 (select accno from bankAccount where branch_name like '%Resi%') 
 group by customer_name having count(customer_name)>=2;
+
+/*View of loans from each branch*/
+create view a_loans(Branch_name,Amount)
+as select branch_name,sum(amount) from loan 
+group by branch_name;
+select * from loans;
+
+
