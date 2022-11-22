@@ -93,4 +93,7 @@ as select branch_name,sum(amount) from loan
 group by branch_name;
 select * from loans;
 
+select CONCAT(Balance+1000,'  rupees') UPDATED_BALANCE from bankAccount b, bankCustomer bc, depositor d 
+where bc.Customer_name=d.Customer_name and b.Accno=d.Accno and bc.city='Bangalore';
+
 
