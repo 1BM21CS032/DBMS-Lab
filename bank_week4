@@ -32,6 +32,8 @@ select branch_name from branch where assets >=
 /*5.Demonstrate how you delete all account tuples at every branch
 located in a specific city (Ex. Bombay).*/
 
+delete from bankAccount where branch_name in (select branch_name from branch where branch_city like ('Bom%'));
+
 /*6.Update the Balance of all accounts by 5%*/
 
 update bankAccount set balance = (balance + (balance*0.05));
