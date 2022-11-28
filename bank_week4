@@ -1,18 +1,37 @@
+/*WEEK 4*/
+
 insert into branch values ('SBI_MantriMarg', 'Delhi', 200000);
 insert into bankAccount values (12, 'SBI_MantriMarg', 2000);
 insert into depositor values ('Nikil', 12);
 
+/*1. Find all the customers who have an account at all the branches
+located in a specific city (Ex. Delhi).*/
+
 select customer_name from depositor d where d.accno in (select b.accno from bankAccount b where b.branch_name in 
 (select branch_name from branch where branch_city in ('Delhi')));
 
+/*2. Find all customers who have a loan at the bank but do not have
+an account.*/
+
 select customer_name from borrower where customer_name not in (select customer_name from depositor);
+
+/*3.Find all customers who have both an account and a loan at the
+Bangalore branch*/
 
 select customer_name from borrower b where b.loan_number in
 (select l.loan_number from loan l where l.branch_name in
 (select branch_name from branch where branch_city like ('Bangalore'))) 
 and customer_name in (select customer_name from depositor);
 
+/*4.Find the names of all branches that have greater assets than all
+branches located in Bangalore.*/
+
 select branch_name from branch where assets >= 
 (select max(assets) from branch where branch_city like ('Bang%')) and branch_city not in ('Bangalore');
+
+/*5.Demonstrate how you delete all account tuples at every branch
+located in a specific city (Ex. Bombay).*/
+
+/*6.Update the Balance of all accounts by 5%*/
 
 update bankAccount set balance = (balance + (balance*0.05));
