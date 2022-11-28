@@ -1,0 +1,18 @@
+insert into branch values ('SBI_MantriMarg', 'Delhi', 200000);
+insert into bankAccount values (12, 'SBI_MantriMarg', 2000);
+insert into depositor values ('Nikil', 12);
+
+select customer_name from depositor d where d.accno in (select b.accno from bankAccount b where b.branch_name in 
+(select branch_name from branch where branch_city in ('Delhi')));
+
+select customer_name from borrower where customer_name not in (select customer_name from depositor);
+
+select customer_name from borrower b where b.loan_number in
+(select l.loan_number from loan l where l.branch_name in
+(select branch_name from branch where branch_city like ('Bangalore'))) 
+and customer_name in (select customer_name from depositor);
+
+select branch_name from branch where assets >= 
+(select max(assets) from branch where branch_city like ('Bang%')) and branch_city not in ('Bangalore');
+
+update bankAccount set balance = (balance + (balance*0.05));
