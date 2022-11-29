@@ -1,3 +1,17 @@
+create table borrower(
+customer_name char(15),
+loan_number int,
+primary key (customer_name, loan_number),
+foreign key (customer_name) references bankCustomer(customer_name),
+foreign key (loan_number) references laon(loan_number)
+);
+
+insert into borrower values ('Avinash', 1),
+('Dinesh', 2),
+('Mohan', 3),
+('Nikil', 4),
+('Ravi', 5);
+
 insert into branch values ('SBI_MantriMarg', 'Delhi', 200000);
 insert into bankAccount values (12, 'SBI_MantriMarg', 2000);
 insert into depositor values ('Nikil', 12);
