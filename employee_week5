@@ -74,6 +74,12 @@ insert into assigned_to values (1, 1, 'Manager'),
 (1, 4, 'Senior Developer'),
 (4, 4, 'Senior Developer');
 
+select * from employee;
+select * from dept;
+select * from incentives;
+select * from project;
+select * from assigned_to;
+
 /*3. Retrieve the employee numbers of all employees who work on
 project located in Bengaluru, Hyderabad, or Mysuru*/
 
