@@ -103,3 +103,8 @@ select e.ename, e.empno, d.dname, d.dloc, p.ploc, a.job_role from employee e
 inner join dept d on e.deptno=d.deptno
 inner join assigned_to a on e.empno=a.empno 
 inner join project p on a.pno=p.pno where p.ploc=d.dloc;
+
+/* Extra: find employee name, department name, and job role of an employee who received maximum incentive in year 2024.*/
+
+select e.ename, e.deptno, d.dname, a.job_role, max(i.incentive_amount) from employee e, dept d, assigned_to a, incentives i 
+where i.incentive_date between '01-01-2024' and '31-12-2024';
