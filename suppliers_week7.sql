@@ -54,12 +54,7 @@ select distinct pname from parts p, catalog c where p.pid=c.pid;
 /*4. Find the snames of suppliers who supply every part.*/
 
 select sname from suppliers where sid in
-(select sid from catalog c where c.pid = all(select pid from parts));
-
-select sname from suppliers s where sid in
-(select sid from catalog c where 
-not exists(select pid from parts p where not exists
-(select sid from catalog c1 where c1.sid=c.sid and c1.pid=p.pid)));
+(select sid from catalog c group by sid having count(sid)=(select count(pid) from parts));
 
 /*5. Find the snames of suppliers who supply every red part.*/
 
