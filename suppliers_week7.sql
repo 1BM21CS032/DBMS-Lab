@@ -65,8 +65,8 @@ select sname from suppliers where sid in
 one else.*/
 
 select pname from parts where pid in
-(select pid from catalog where sid in
-(select sid from suppliers where sname like 'Acme%'));
+(select pid from catalog where sid in(select sid from suppliers where sname='Acme widget'))
+and pid not in(select pid from catalog where sid in(select sid from suppliers where sname!='Acme widget'));
 
 /*7. Find the sids of suppliers who charge more for some part than the average
 cost of that part (averaged over all the suppliers who supply that part).*/
