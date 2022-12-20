@@ -75,3 +75,6 @@ select sid from catalog c where cost>=(select avg(cost) from catalog c1 where c1
 
 /*8. For each part, find the sname of the supplier who charges the most for
 that part.*/
+
+select s.sname, c.pid from catalog c, suppliers s where cost=
+(select max(cost) from catalog c1 where c1.pid=c.pid)and s.sid=c.sid;
