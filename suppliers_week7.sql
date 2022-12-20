@@ -71,7 +71,7 @@ select pname from parts where pid in
 /*7. Find the sids of suppliers who charge more for some part than the average
 cost of that part (averaged over all the suppliers who supply that part).*/
 
-
+select sid from catalog c where cost>=(select avg(cost) from catalog c1 where c1.pid=c.pid)group by sid;
 
 /*8. For each part, find the sname of the supplier who charges the most for
 that part.*/
